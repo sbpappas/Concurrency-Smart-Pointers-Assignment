@@ -48,12 +48,9 @@ fn main() {
         }
     });
 
-    // Waiting for threads to finish
     handle2.join().unwrap();
     handle1.join().unwrap();
     
-
-    // Displaying final scores
     let player1_final = player1.lock().unwrap();
     let player2_final = player2.lock().unwrap();
 
@@ -61,4 +58,16 @@ fn main() {
     println!("Results:");
     println!("{}: {}", player1_final.name, player1_final.points);
     println!("{}: {}", player2_final.name, player2_final.points);
+    
+    /*println!("{}: {}", {
+        let player1_again = player1.lock().unwrap();
+        player1_guard.name
+    }, {
+        let player1_again = player1.lock().unwrap();
+        player1_guard.points
+    });*/
+    
+    //Originally I encountered a deadlock by doing this:
+    //println!("{}: {}", player1.lock().unwrap().name, player1.lock().unwrap().points);
+
 }
