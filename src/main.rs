@@ -1,3 +1,4 @@
+//Feb 8 2024
 use std::sync::{Mutex, Arc};
 use std::thread;
 use rand::Rng;
@@ -59,7 +60,8 @@ fn main() {
     println!("{}: {}", player1_final.name, player1_final.points);
     println!("{}: {}", player2_final.name, player2_final.points);
     
-    /*println!("{}: {}", {
+    /* Why does this part give a compiler error?
+    println!("{}: {}", {
         let player1_again = player1.lock().unwrap();
         player1_guard.name
     }, {
